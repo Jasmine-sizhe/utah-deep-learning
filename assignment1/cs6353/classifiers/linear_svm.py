@@ -43,7 +43,10 @@ def svm_loss_naive(W, X, y, reg):
   loss += reg * np.sum(W * W)
 
   #############################################################################
-  # TODO:                                                                     #
+  loss /= num_train
+  dW /= num_train
+  loss += reg*np.sum(W*W)
+  dW += reg*2*W
   # Compute the gradient of the loss function and store it dW.                #
   # Rather that first computing the loss and then computing the derivative,   #
   # it may be simpler to compute the derivative at the same time that the     #
